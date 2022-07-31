@@ -2,3 +2,5 @@ Django==4.0.6
 django-extensions==3.2.0
 djangorestframework==3.13.1
 Werkzeug==2.2.1
+python-dotenv==0.20.0
+dj-database-url==1.0.0
