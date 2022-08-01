@@ -1,4 +1,4 @@
-from os import getenv
+from os import environ, getenv
 
 import dj_database_url
 from dotenv import load_dotenv
@@ -15,9 +15,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG = int(environ.get("DEBUG", default=0))
+
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
